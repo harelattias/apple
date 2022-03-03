@@ -7,7 +7,7 @@ def on_mouse_down(pos):
     global number_of_attempts
 
     number_of_attempts = number_of_attempts +1
-    if number_of_attempts ==  11:
+    if number_of_attempts ==  12:
         quit()
 
     if apple.collidepoint(pos):
@@ -16,12 +16,17 @@ def on_mouse_down(pos):
 
 
 def draw():
-    screen.fill((0, 170, 0))
-    apple.draw()
     global number_good_shots
     global number_of_attempts
-    #pygame.display.set_caption("Number of good shots : " + str(number_good_shots))
-    screen.draw.text("number of hits -> " + str(number_good_shots) + " / " + str(number_of_attempts), (20, 20), owidth=1, ocolor="blue")
+
+
+    if number_of_attempts == 11:
+        screen.fill((210, 105, 30))
+        screen.draw.text("end", (400-60, 270-50), owidth=50, ocolor="blue")
+    else:
+        screen.fill((50, 170, 200))
+        apple.draw()
+        screen.draw.text("number of hits -> " + str(number_good_shots) + " / " + str(number_of_attempts), (20, 20), owidth=1, ocolor="blue")
 
 
 def place_apple():
